@@ -1,10 +1,10 @@
 /**
  * Insert the Task obj inside a node application
  */
+var Repo = require('./Creational-Patterns/Module-taskRepo')
 
-
-const Task = function (name) {
-    this.name = name
+const Task = function (data) {
+    this.name = data.name
     this.completed = false
 }
 
@@ -15,6 +15,7 @@ Task.prototype.complete = function () {
 
 Task.prototype.save = function () {
     console.log('saving task: ' + this.name)
+    Repo.save(this)
 }
 
 module.exports = Task //we export to constructor_b
